@@ -1,0 +1,8 @@
+- name: gather volume used
+  hosts: planetexpress:!farnsworth
+  connection: ssh
+  gather_facts: no
+
+  tasks:
+  - name: gather size
+
