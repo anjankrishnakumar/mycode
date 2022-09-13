@@ -1,0 +1,19 @@
+- name: Out first play
+  hosts: planetexpress
+  gather_facts: yes
+
+  tasks:
+
+      - name: Install steam locomotive 
+        apt:
+            name: sl
+            state: present
+        become: yes
+        when : ansible_distribution=="Ubuntu"
+      - name: Install SL in farnworth
+        yum:
+            name: sl
+            state: present
+        become: yes
+        when: ansible_distribution=="CentOS"
+        
