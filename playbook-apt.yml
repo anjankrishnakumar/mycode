@@ -1,0 +1,31 @@
+- name: PLaybook nNstall figlet cmatrix sl
+  hosts: planetexpress:!farnsworth
+  connection: ssh
+  gather_facts: yes
+
+  tasks:
+  - name: using apt to install figlet cmatrix sl
+    ansible.builtin.apt: 
+                       name: figlet
+                       state: present
+                       
+                       name: sl
+                       state: present
+                       name: cmatrix
+                       state: present
+    become: yes                  
+
+- name: PLaybook nNstall figlet cmatrix sl
+  hosts: farnsworth
+  connection: ssh
+  gather_facts: yes
+
+  tasks:
+  - name: using apt to install figlet cmatrix sl
+    ansible.builtin.yum:
+                       name: figlet
+                       state: present
+
+                       name: sl
+                       state: present
+    become: yes 
