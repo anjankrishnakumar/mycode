@@ -1,0 +1,12 @@
+- name: Loop over packages to install
+  hosts: raiders
+  gather_facts: yes
+
+  tasks:
+    - name: get /var/log/audit directory used spac
+      #shell: "df -h | grep /snap/core20/1328" 
+      shell: "df -h | grep /etc/hosts"
+      register: dir_used_percentage
+
+    - debug:
+        var: dir_used_percentage.stdout_lines
